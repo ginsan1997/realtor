@@ -15,22 +15,22 @@
 
 <?php if (!$_SESSION['login']){?> 
     <div class="centerDiv">   
-<div class="registerForm">
+<div class="registerForm" >
         Регистрация
-        <form action="register.php" method="post">
+        <form action="" method="post" id="registerForm">
             <input type="text" class="inputAuth" name="login" placeholder="login" required>
             <input type="text" class="inputAuth" name="password" placeholder="password" required>
             <input type="text" class="inputAuth" name="email" placeholder="email" required>
-            <button type="submit" class="btnAuth">Регистрация</button>
+            <button type="submit" id="reg" class="btnAuth">Регистрация</button>
         </form>
     </div>
 
-    <div class="loginForm">
+    <div class="loginForm" >
         Авторизация
-        <form action="login.php" method="post">
+        <form action="" method="post" id="loginForm">
             <input type="text" class="inputAuth" name="login" placeholder="login" required>
             <input type="text" class="inputAuth" name="password" placeholder="password" required>
-            <button type="submit" class="btnAuth">Вход</button>
+            <button type="submit" id="log" class="btnAuth">Вход</button>
 
         </form>
 </div></div>
@@ -79,7 +79,21 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script type="text/javascript">
+            $(document).ready(function () {
+            $("#registerForm").on("submit", function () {
+            $.post('register.php', $('#registerForm').serialize(), function(data, status){
 
+            });
+            });
+            }); 
+
+            $(document).ready(function () {
+            $("#loginForm").on("submit", function () {
+            $.post('login.php', $('#loginForm').serialize(), function(data, status){
+
+            });
+            });
+            }); 
 
       </script>
     </div>
